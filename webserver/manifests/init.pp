@@ -30,6 +30,6 @@ class webserver (
 		ensure      => running,
 		enable      => true,
 		hasrestart  => true,
-		require     => [ File['config-file'], File['vhost-file'] ],
+		subscribe     => [ File['config-file'], File['vhost-file'] ],
 	}
 }
