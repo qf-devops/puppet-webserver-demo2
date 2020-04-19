@@ -1,9 +1,8 @@
-class webserver (
-		$packagename   = $::webserver::parameters::packagename,
-		$configfile    = $::webserver::parameters::configfile,
-		$configsource  = $::webserver::parameters::configsource,
-		$vhostfile     = $::webserver::parameters::vhostfile
-		) inherits ::webserver::parameters {
+class webserver{
+		$packagename   = hiera(packagename)
+		$configfile    = hiera(configfile)
+		$configsource  = hiera(configsource)
+		$vhostfile     = hiera(vhostfile)
 	package { 'webserver-package':
 		name   => $packagename,
 		ensure => present
