@@ -1,0 +1,16 @@
+root@ip-172-31-27-253:/etc/puppet# cat hiera.yaml 
+---
+:backends:
+  - yaml
+  - puppet
+
+:hierarchy:
+  - "%{::osfamily}"
+  - "%{environment}"
+  - common
+
+:yaml:
+  :datadir: /etc/puppet/hieradata
+
+:puppet:
+  :datasource: data
