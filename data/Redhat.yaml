@@ -1,0 +1,4 @@
+packagename: 'httpd'
+configfile: '/etc/httpd/conf/httpd.conf'
+configsource: 'puppet:///modules/webserver/httpd.conf'
+vhostfile: '/etc/httpd/conf.d/vhost.conf'
