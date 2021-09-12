@@ -1,8 +1,8 @@
-class webserver{
-		$packagename   = hiera(packagename)
-		$configfile    = hiera(configfile)
-		$configsource  = hiera(configsource)
-		$vhostfile     = hiera(vhostfile)
+class webserver {
+		$packagename   = hiera('packagename')
+		$configfile    = hiera('configfile')
+		$configsource  = hiera('configsource')
+		$vhostfile     = hiera('vhostfile')
 	package { 'webserver-package':
 		name   => $packagename,
 		ensure => present
