@@ -1,16 +1,17 @@
-root@ip-172-31-27-253:/etc/puppet# cat hiera.yaml 
 ---
-:backends:
-  - yaml
-  - puppet
-
-:hierarchy:
-  - "%{::osfamily}"
-  - "%{environment}"
-  - common
-
-:yaml:
-  :datadir: /etc/puppet/hieradata
-
-:puppet:
-  :datasource: data
+version: 5
+defaults:
+  # The default value for "datadir" is "data" under the same directory as the hiera.yaml
+  # file (this file)
+  # When specifying a datadir, make sure the directory exists.
+  # See https://puppet.com/docs/puppet/latest/environments_about.html for further details on environments.
+  # datadir: data
+  # data_hash: yaml_data
+hierarchy:
+  - name: "osfamily (yaml version)"
+    path: "%{::osfamily}.yaml"
+  - name: "environment (yaml version)"
+    path: "%{environment}.yaml"
+  - name: "Other YAML hierarchy levels"
+    paths:
+      - "common.yaml"
